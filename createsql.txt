@@ -1,0 +1,210 @@
+
+# Table: 'audiences'
+# 
+CREATE TABLE `audiences` (
+  `audienceid` int(11) NOT NULL auto_increment,
+  `title` varchar(100) NOT NULL default '',
+  PRIMARY KEY  (`audienceid`)
+)
+
+
+# Table: 'authorization'
+# 
+CREATE TABLE `authorization` (
+  `authid` int(11) NOT NULL auto_increment,
+  `userid` int(11) default NULL,
+  `siteid` int(11) default NULL,
+  `level` int(1) default NULL,
+  PRIMARY KEY  (`authid`)
+)
+
+
+# Table: 'events'
+# 
+CREATE TABLE `events` (
+  `eventid` int(11) NOT NULL auto_increment,
+  `userid` int(11) NOT NULL default '0',
+  `lastmod` date NOT NULL default '0000-00-00',
+  `seq` int(11) NOT NULL default '0',
+  `isactive` int(1) NOT NULL default '0',
+  `ispublic` char(1) NOT NULL default '',
+  `created` date NOT NULL default '0000-00-00',
+  `pubdate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `startdate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `enddate` datetime default '0000-00-00 00:00:00',
+  `pulldate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `shortdesc` varchar(50) NOT NULL default '',
+  `longdesc` varchar(255) default NULL,
+  `information` text,
+  `link` varchar(255) default NULL,
+  `status` char(1) NOT NULL default '',
+  `locationid` int(11) NOT NULL default '0',
+  `specificlocation` varchar(50) NOT NULL default '',
+  `sponsor` varchar(50) NOT NULL default '0',
+  `contact` varchar(100) NOT NULL default '',
+  `creator` varchar(20) NOT NULL default '',
+  `recurring_status` char(1) NOT NULL default '',
+  `rsvppublic` tinyint(1) NOT NULL default '0',
+  `rsvp` tinyint(1) NOT NULL default '0',
+  `cost` varchar(255) default NULL,
+  PRIMARY KEY  (`eventid`)
+
+)
+
+
+# Table: 'events_audref'
+# 
+CREATE TABLE `events_audref` (
+  `event_audrefid` int(11) NOT NULL auto_increment,
+  `eventid` int(11) NOT NULL default '0',
+  `audienceid` int(11) NOT NULL default '0',
+  `userid` int(11) NOT NULL default '0',
+  `actiondate` date NOT NULL default '0000-00-00',
+  PRIMARY KEY  (`event_audrefid`)
+)
+
+
+# Table: 'events_ref'
+# 
+CREATE TABLE `events_ref` (
+  `event_refid` int(11) NOT NULL auto_increment,
+  `eventid` int(11) NOT NULL default '0',
+  `siteid` int(11) NOT NULL default '0',
+  `userid` int(11) NOT NULL default '0',
+  `actiondate` date NOT NULL default '0000-00-00',
+  `level` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`event_refid`)
+)
+
+
+# Table: 'locations'
+# 
+CREATE TABLE `locations` (
+  `locationid` int(11) NOT NULL auto_increment,
+  `name` varchar(100) default '',
+  `address` varchar(255) default '',
+  `subaddress` varchar(255) default NULL,
+  `link` varchar(255) default NULL,
+  `creator` varchar(20) default '',
+  `isactive` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`locationid`),
+)
+
+
+# Table: 'logintracking'
+# 
+CREATE TABLE `logintracking` (
+  `logintrackingID` int(11) NOT NULL auto_increment,
+  `userid` int(11) NOT NULL default '0',
+  `logindate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `browser` varchar(50) NOT NULL default '',
+  `ipaddress` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`logintrackingID`)
+)
+
+
+# Table: 'messages'
+# 
+CREATE TABLE `messages` (
+  `messageID` int(11) NOT NULL auto_increment,
+  `content` text NOT NULL,
+  `subject` varchar(100) NOT NULL default '',
+  `userid` int(11) NOT NULL default '0',
+  `isactive` tinyint(4) NOT NULL default '1',
+  `date_sent` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`messageID`)
+)
+
+
+# Table: 'news'
+# 
+CREATE TABLE `news` (
+  `newsid` int(11) NOT NULL auto_increment,
+  `lastmod` datetime NOT NULL default '0000-00-00 00:00:00',
+  `isactive` char(1) NOT NULL default '',
+  `ispublic` char(1) NOT NULL default '',
+  `created` datetime NOT NULL default '0000-00-00 00:00:00',
+  `pubdate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `pulldate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `shorttitle` varchar(50) NOT NULL default '',
+  `longtitle` varchar(150) NOT NULL default '',
+  `description` text NOT NULL,
+  `byline` varchar(100) NOT NULL default '',
+  `bylinetitle` varchar(100) NOT NULL default '',
+  `dateline` varchar(100) NOT NULL default '',
+  `content` longtext NOT NULL,
+  `userid` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`newsid`)
+)
+
+
+# Table: 'news_ref'
+# 
+CREATE TABLE `news_ref` (
+  `news_refid` int(11) NOT NULL auto_increment,
+  `newsid` int(11) NOT NULL default '0',
+  `siteid` int(11) NOT NULL default '0',
+  `userid` int(11) NOT NULL default '0',
+  `actiondate` date NOT NULL default '0000-00-00',
+  `priority` decimal(10,0) NOT NULL default '0',
+  `level` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`news_refid`)
+)
+
+
+# Table: 'rsvp'
+# 
+CREATE TABLE `rsvp` (
+  `rsvpid` int(11) NOT NULL default '0',
+  `eventid` int(11) NOT NULL default '0',
+  `name` varchar(100) NOT NULL default '',
+  `guests` int(11) NOT NULL default '0',
+  `reply` text NOT NULL,
+  PRIMARY KEY  (`rsvpid`)
+)
+
+
+# Table: 'sites'
+# 
+CREATE TABLE `sites` (
+  `siteid` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL default '',
+  `uri` varchar(100) NOT NULL default '',
+  `description` tinyint(1) NOT NULL default '0',
+  `isactive` tinyint(1) NOT NULL default '0',
+  `creator` int(11) NOT NULL default '0',
+  `maxrows` int(1) NOT NULL default '0',
+  PRIMARY KEY  (`siteid`)
+)
+
+
+# Table: 'sponsors'
+# 
+CREATE TABLE `sponsors` (
+  `sponsorid` int(11) NOT NULL default '0',
+  `name` varchar(255) NOT NULL default '',
+  `phone` varchar(255) default NULL,
+  `email` varchar(255) default NULL,
+  `link` varchar(255) default NULL,
+  `creator` varchar(20) NOT NULL default '',
+  `ispublic` char(1) NOT NULL default '',
+  PRIMARY KEY  (`sponsorid`),
+)
+
+
+# Table: 'users'
+# 
+CREATE TABLE `users` (
+  `userid` int(11) NOT NULL auto_increment,
+  `username` varchar(20) NOT NULL default '',
+  `administrator` tinyint(1) NOT NULL default '0',
+  `createtime` date default NULL,
+  `last_logon` date default NULL,
+  `last_access` date default NULL,
+  `last_modify` date default '0000-00-00',
+  `lastname` varchar(100) NOT NULL default '',
+  `firstname` varchar(100) NOT NULL default '',
+  `isactive` tinyint(4) NOT NULL default '1',
+  `email` varchar(100) NOT NULL default '',
+  PRIMARY KEY  (`userid`)
+)

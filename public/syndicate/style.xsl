@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://purl.org/atom/ns#"
+    version="1.0">
+
+    <xsl:template match="/">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <title><xsl:value-of select="rss/channel/title"/></title>
+            
+            <style type="text/css">
+                
+                body {
+                background-color: #fff;
+                }
+                #branding {
+                position: relative;
+                top: 0px;
+                left: 0px;
+                width: 585px;
+                
+                background-color: #700;
+                color: #FFF;
+                margin: 0px 0px 10px 0px;
+                text-align: right;
+                padding-right: 15px;
+                padding-top: 15px;
+                }
+                
+                #pageTitle {
+                font-size: 25px;
+                }
+                
+                #tagLine {
+                font-size: 15px;
+                }
+                
+                #wrapper {
+                width: 600px;
+                margin: 0px auto 0px auto;
+                background-color: #FFF;
+                padding: 0px;
+                font-family: "Verdana", "Trebuchet MS", "Trebuchet", "Tahoma",  helvetica, sans-serif;
+                
+                }
+                
+                .boxContent {
+                font-size: .8em;
+                }
+                
+                .boxHeadline {
+                font-size: 2em;
+                }
+                #descriptionBox {
+                margin: 10px;
+                border: 1px #000 solid;
+                background-color: #fff;
+                padding: 10px;
+                }
+                
+                #descHeadline {
+                }
+                #descText {
+                }
+                #PleaseNoteBox {
+                
+                }
+                
+                #subscribeBox {
+                margin: 10px;
+                border: 1px #000 solid;
+                background-color: #FFD;
+                padding: 10px;
+                }
+                
+                #subscribeHeadline {
+                }
+                
+                #subscribeText {
+                }
+                
+                #termsBox {
+                margin: 10px;
+                border: 1px #000 solid;
+                background-color: #FFD;
+                padding: 10px;
+                }
+                
+                
+                #feedContent {
+                margin: 10px;
+                border: 1px #000 solid;
+                background-color: #F5F5F5;
+                padding: 10px;
+                }
+                
+                .subImage {
+                    vertical-align: middle;
+                    border: 0px none;
+                }
+                
+            </style>
+            
+        </head>
+        <body>
+            
+            
+            <div id="wrapper">
+                
+                <div id="branding">
+                    <span id="pageTitle"><xsl:value-of select="rss/channel/title"/></span><br/>
+                    <span id="tagLine">The <xsl:value-of select="rss/channel/title"/> RSS Feed</span>
+                </div>
+                
+                
+                
+                <div id="descriptionBox">
+                    <div  class="boxHeadline" id="descHeadline">What is this?</div>
+                    <div class="boxContent" id="descText">
+                        Want to be notified whenever a new event is posted to the Loyola University Chicago calendar? You can use RSS feeds like this one
+                        to get notified.                      </div>
+                    
+                </div>
+                
+                <div id="subscribeBox">
+                    <div  class="boxHeadline" id="subscribeHeadline">Already using RSS?</div>
+                    
+                    <div class="boxContent" id="subscribeText">
+                        
+                        You can use the links below to subscribe to your favorite RSS Feed Aggregator: 
+                        <br />
+                        <br />
+                        <a href='{concat("http://www.newsgator.com/ngs/subscriber/subext.aspx?url=", rss/channel/atom:link/@href) }'><img class="subImage" src="http://www.newsgator.com/images/ngsub1.gif" alt="Add to newsgator" /></a>
+                        <a href='{concat("http://www.bloglines.com/sub/", rss/channel/atom:link/@href) }'><img class="subImage" src="http://www.bloglines.com/images/sub_modern2.gif" alt="Add to Bloglines" /></a>
+                        <a href='{concat("http://my.msn.com/addtomymsn.armx?id=rss&amp;ut=", rss/channel/atom:link/@href, "&amp;tt=CENTRALDIRECTORY&amp;ru=http://rss.msn.com")}'><img class="subImage" src="http://sc.msn.com/c/rss/rss_mymsn.gif" alt="Add to My MSN" /></a>
+                        <a href='{concat("http://add.my.yahoo.com/rss?url=", rss/channel/atom:link/@href)}'><img class="subImage" src="http://us.i1.yimg.com/us.yimg.com/i/us/my/addtomyyahoo4.gif" alt="Add to My Yahoo" /></a>
+                    </div>
+                </div>
+                
+                <div id="termsBox">
+                    <div class="boxHeadline" id="termsHeadline">Terms of Use</div>
+                    
+                    <div class="boxContent" id="termsText">Loyola University Chicago's RSS Feeds are for private, non-commercial use only.  </div>
+                    
+                </div>
+                
+                <div id="feedContent">
+                    
+                    <!-- feed content goes here -->
+                    <div class="boxHeadline" id="feedHeadline">
+                        <xsl:value-of select="rss/channel/title"/>     
+                    </div>
+                    
+                    <div class="boxContent" id="feedItems">
+                        
+                        <ul>
+                        <xsl:for-each select="rss/channel/item">
+                            <li>
+                                <span class="rssHeadline"><a href='{ link }'><xsl:value-of select="title"/></a></span> 
+                                    by
+                                <xsl:value-of select="author"/>  
+                            </li>
+                        </xsl:for-each>
+                        </ul>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </body>
+    </html>
+    </xsl:template>
+    
+    
+</xsl:stylesheet>

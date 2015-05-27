@@ -1,0 +1,395 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Container table styles content: '   |';*/
+
+
+
+#calendar, #calendar_detail {
+	font-family: "myriad-pro", sans-serif;
+	width:95%
+}
+#calendar a, #calendar_detail a {
+	color:#680013;
+}
+
+#calendar #view h3#name {	
+	font-size:1.2em;
+
+}
+#calendar #view #navi {
+	float:right;
+	margin-top:-20px;
+
+}
+
+#calendar #view #navi li {
+	font-size:.8em;
+	display:inline;
+	text-transform:capitalize;
+}
+#calendar #view #navi li:first-child {
+	border-right:1px solid;
+	padding:5px;
+}
+#calendar nav#filter {
+	font-size:.8em;
+	
+	margin:0;
+	display:block;
+}
+#calendar_search, #calendar_view, #calendar_filter {
+	width:25%;
+	display:block;
+	padding:.25em 0em;
+	white-space:nowrap;
+}
+#calendar_filter {display:none;}
+#calendar table, #calendar ul.dayview li{
+	border-collapse: collapse;
+	padding: 0;
+	border-color: #CCC;
+	font-size:12px;
+	width:100%
+}
+#calendar td.wkhdr {
+	padding: 2px;
+	background-color: #FFFDE8;
+	font-weight: bold;
+	text-align: center;
+	width: 14%;
+}
+#calendar td.wkndhdr {
+	padding: 2px;
+	background-color: #CCC;
+	font-weight: bold;
+	text-align: center;
+	width: 15%;
+}
+#calendar table ul {
+	margin: 0px 0px 10px 0px;
+	list-style-type: none;
+}
+#calendar table ul li {
+	margin-top: 10px;
+}
+#calendar td, #calendar th {
+	border-bottom: 1px solid #CCC;
+	padding: 5px;
+	vertical-align: top;
+}
+.calendar th span {
+	display: none;
+}
+.calendar tr {
+	display: block;
+}
+.calendar td,  .calendar th {
+	display: none;
+}
+.calendar .day {
+	margin: 1em 0 .5em 0;
+	font-weight: bold;
+}
+.calendar .events {
+	display: block;
+}
+.calendar ul {
+	display: block;
+	list-style: none;
+	margin: 0 1.25em 0 0;/*15*/
+	padding: 0;
+}
+.calendar li {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding:0;
+	height: 3em;/*15*/
+	;
+}
+
+.calendar li a {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+ .calendar tr td:nth-of-type(1n) .day:before {
+content: 'Sunday ';
+}
+ .calendar tr td:nth-of-type(2n) .day:before {
+content: 'Monday ';
+}
+ .calendar tr td:nth-of-type(3n) .day:before {
+content: 'Tuesday ';
+}
+ .calendar tr td:nth-of-type(4n) .day:before {
+content: 'Wednesday ';
+}
+ .calendar tr td:nth-of-type(5n) .day:before {
+content: 'Thursday ';
+}
+ .calendar tr td:nth-of-type(6n) .day:before {
+content: 'Friday ';
+}
+ .calendar tr td:nth-of-type(7n) .day:before {
+content: 'Saturday ';
+}
+.calendar .prev-month,  .calendar .next-month {
+	display: none;
+}
+
+ @media only screen and (min-width: 65em) {
+ #calendar nav#filter{display:inline;width:98%;display:block;}
+#calendar_search, #calendar_view, #calendar_filter {display: inline;padding:1em;}}
+
+
+ @media only screen and (min-width: 50em) { /*640*/
+
+		/* show full days (e.g. "Mon" to "Monday") */
+		.calendar th span {
+display: inline;
+}
+ #calendar td.wknd {
+ background-color: #F0F0F0;
+}
+#calendar #view h3#name {
+	text-align: center;	
+}
+}
+
+
+ @media only screen and (min-width: 40em) { /*480*/
+ .calendar tr {
+display: table-row;
+}
+ .calendar th, .calendar td {
+display: table-cell !important;
+margin: 0;
+width: 14.2857%;
+padding: 0.4166em;/*10*/
+border: 1px solid #babcbf;
+vertical-align: top;
+}
+ .calendar .prev-month .day,  .calendar .next-month .day {
+color: #bbb;
+}
+ .calendar td .day {
+display: block;
+margin: 0;
+font-weight: normal;
+}
+ .calendar td .day:before {
+display: none;
+}
+ .calendar td .suffix {
+display: none;
+}
+ .calendar td .month {
+display: none;
+}
+
+#calendar #view #navi {
+
+	margin-top:-40px;
+
+}
+
+
+}
+
+ @media only screen and (min-width: 40em) and (min-height: 20em) {
+ .calendar td {
+height: 2.5em;/*30*/
+}
+}
+ @media only screen and (min-width: 40em) and (min-height: 40em) {
+ .calendar td {
+height: 6.25em;/*75*/
+}
+}
+
+
+
+/*up styling for single day view list*/
+#calendar ul.dayview {
+	margin: 0px 0px 10px 25px;
+	list-style-type: disc;
+	line-height: 1.2;
+}
+#calendar ul.dayview li {
+	margin-top: 15px;
+}
+div#details {
+	margin: 11px;
+	width: 550px;
+}
+
+
+
+
+#calendar_detail p, #calendar_detail dl{font-size:0.925em;}
+
+#calendar_detail p.time, #calendar_detail dt{font-weight: bold;}
+
+#calendar_detail dt{padding:.55em 0 0 0}
+#calendar_detail dt:after {
+content: ':';
+}
+#calendar_detail dd{padding:.2em 0 0 0;}
+
+
+div#pageblurb {
+	width: 50%;
+	margin: 0px 10px 0px 0px;
+	float: left;
+	font-size: 70%;
+	line-height: 1.2;
+}
+div#pageblurb li {
+	margin-bottom: 5px;
+}
+/*get rid of bottom margin on last li to create uniform 15 px margin*/
+div#pageblurb ul {
+	margin-bottom: -5px;
+}
+/*filtered calendar header*/
+div#pageblurb h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 160%;
+}
+/* styles for columns of content on news */
+.column {
+	margin: 0px 15px 0px 15px;
+}
+.column_right {
+	margin: 0px 15px 0px 20px;
+}
+td.dashrule {
+	border-left: 1px dashed #CCCCCC;
+}
+/*news pagelet styling*/
+#holder {
+	margin: 0 2.5% 15px 2.5%;
+}
+.pagelet {
+	margin: 0 0 15px 0;
+	padding: 0;
+	border: 1px solid #333;
+	background-color: #F0F0F0;
+	width: 100%;
+	clear: both;
+}
+.pagelet_left {
+	margin: 0 1% 15px 0;
+	padding: 0;
+	border: 1px solid #333;
+	background-color: #FFFDE8;
+	float: left;
+	clear: left;
+	width: 48%;
+}
+.pagelet_right {
+	margin: 0 0 15px 1%;
+	padding: 0;
+	border: 1px solid #333;
+	background-color: #FFFDE8;
+	float: right;
+	clear: right;
+	width: 48%;
+}
+.pagelet_title {
+	margin: 0;
+	padding: 2px;
+	display: block;
+	border: 1px solid #FDBB57;
+	font-weight: bold;
+	color: white;
+	background-color: #A30046;
+}
+.pagelet_content {
+	margin: 0;
+	padding: 5px;
+}
+.pagelet_grey {
+	margin: 0 0 15px 0;
+	padding: 0;
+	border: 1px solid #CCC;
+	background-color: #F0F0F0;
+	width: 48%;
+	float: right;
+	clear: right;
+}
+.pagelet_greytitle {
+	margin: 0;
+	padding: 3px;
+	display: block;
+	border: 1px solid #CCC;
+	font-weight: bold;
+	color: #333;
+	background-color: #CCC;
+}
+/*publication headers*/
+.pagelet_title h2 {
+	color: #fff;
+	margin: 4px 0 4px 0;
+	font-size: 140%;
+}
+/*space the dl's on publication view*/
+dl.pub dd {
+	margin-bottom: 15px;
+}
+/*Headline news output styles*/
+ul.headlines, ul.headlinesleft, ul.headlinesright {
+	margin: 0px 20px 10px 20px;
+	padding: 0px;
+	list-style-type: disc;
+	line-height: 1.2;
+}
+ul.headlines li {
+	margin-top: 5px;
+}
+ .headlinesleft,, headlinesright {
+width:50%;
+}
+.headlinesright {
+	float:right;
+	margin-top:-9.5em;
+	margin-right:10px;
+}
+feature.headlinesright {
+	margin: 0px 20px 10px 0px;
+	padding: 0px;
+}
+feature.headlinesright h2 {
+	color: #a30046;
+	font-size: 140%;
+	padding: 0 0 5px 0;
+}
+.copyimage_l {
+	margin: 0px 10px 5px 0px;
+	float: left;
+}
+.copyimage_r {
+	margin: 0px 0px 5px 10px;
+	float: right;
+}
+/* generic spacing */
+.floatleft {
+	float: left;
+	white-space:nowrap;
+}
+.floatright {
+	float: right;
+}
+.calendartool {
+	background-color: #FEEDC5;
+	margin: -5px -5px 0 -5px;
+	padding: 5px;
+	width: 20%;
+}

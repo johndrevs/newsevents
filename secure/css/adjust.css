@@ -1,0 +1,48 @@
+/* CSS Document */
+.fade {
+  opacity: 1;
+height:auto;
+}
+.fade.out {
+  opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+  -moz-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+  
+}
+.fade.hide {
+ height: 1px;
+    -webkit-transition: height 0.15s linear;
+  -moz-transition: height 0.15s linear;
+  -o-transition: height 0.15s linear;
+  transition: height 0.15s linear;
+  
+}
+
+.logout, .support{border:1px solid;}
+label.valid {
+  width: 24px;
+  height: 24px;
+  background: url(../img/valid.png) center center no-repeat;
+  display: inline-block;
+  text-indent: -9999px;
+}
+label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+
+a{color:#680013;}
+a:hover{color:#a30046;}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  color: white;
+  background-color: #680013;
+  background-image: none;
+}
+
+.hidden{display:none;}
+.modal h3{display:none;}
+

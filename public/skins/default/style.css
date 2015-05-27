@@ -1,0 +1,342 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ================================================================================================
+   OVERALL
+================================================================================================ */
+
+/* HEADER */
+
+body.full header.global .content, body.full header#main section.content {margin: 0 auto; padding: 0; max-width: 90%;}
+    
+
+/* GENERAL LAYOUT */
+
+:hover {transition: all .25s; /* Firefox 4 */ -moz-transition: all .25s; /* Safari and Chrome */ -webkit-transition: all .25s;  /* Opera */ -o-transition: all .25s;}
+
+#pagefull {display: block; width: 90%; margin: 4em auto;}
+#calendar, #calendar_detail, #calendar_submit {margin: 2em auto; padding:1.5em; width: 97.375%; font-size:1.3em; background-color: #fff;}
+#calendar_detail, #calendar_submit {padding:1.5em 1.75em; font-size:1.3em; background-color: #fff;}
+
+
+/* GENERAL TYPOGRAPHY */
+
+#main section.content h2 a {color: #FFF; font-family: "StagWeb-Bold","myriad-pro", sans-serif; letter-spacing: .1em;}
+#calendar h2, #calendar_detail h2 {font-size:1.5em;}
+#calendar_submit h3 {text-align:right; background-color:#BBB; margin:0; padding:3px 7px;}
+#calendar h3.day a {text-decoration: none; background-color: none;}
+
+
+/* SEARCH FILTER HEADER */
+
+#calendar a, #calendar_submit a {color:#000;}
+div #filter {background-color: #DADADA;}
+div #filter a {color:#680013}
+#calendar nav#filter form#calendar_filter {margin-left: 2em;}
+#calendar nav#filter div#calendar_view, #calendar nav#filter form#calendar_filter {padding: 0;}
+#calendar nav#filter {margin: 1.75em auto .75em; padding: 1em; border:2px solid #FFF;}
+
+
+/* CALENDAR VIEW */
+
+#calendar #view {padding-top:.7em;}
+#calendar #view {background-color:#680013; color:#fff; padding:.5em; border:2px solid #FFF;}
+#calendar #view a {color:#fff;}
+#calendar #filter #calendar_view {margin-bottom: .5em;}
+
+/* VIEW, NAVI AND UL */
+#calendar nav#view {border:2px solid #FFF;}
+#calendar #view h3#name {font-size: 1em; letter-spacing: .05em; text-transform: uppercase; text-align: center; background: none;}
+#calendar #view #navi, #calendar_detail #view #navi {margin-top:-1.25em;}
+#calendar #view ul#navi {width: 100%;}
+#calendar #view ul#navi li a {float: right; margin-bottom: 2px; padding: 3px 5px 0 5px; color: #EEE; letter-spacing: .05em; text-transform: uppercase; text-decoration: none;}
+#calendar #view #navi li:first-child {border-right:0px solid;}
+#calendar #view ul#navi li:first-child {float: left; padding: 0;}
+
+/* DAYVIEW */
+#calendar ul.dayview {margin: 0; padding: 0; line-height: 120%; list-style-type: none; background-color: #EEE; border: solid 1px #FFF;}
+#calendar ul.dayview li {margin: 0; padding: 1em 0; width: 99%; padding-left: 1%; border-bottom: solid 1px #CCC;}
+#calendar ul.dayview li a {text-decoration: none;}
+#calendar ul.dayview li:hover {background: #EEB111;}
+
+
+/* CALENDAR TABLE */
+
+#calendar table {width: 100%; border-color: #CCC; font-family: "myriad-pro", sans-serif; font-size:12px;}
+#calendar td {vertical-align:top;background-color:#EEE; border:2px solid  #fff;}
+
+#calendar_submit table {margin: 1em 0; width: 100%;}
+#calendar_submit table tr td {padding: 1em 0; background: #FFF; border-bottom: solid 1px #CCC;}
+
+#calendar td.wknd {background-color:#DDD; padding: 1px;}
+#calendar td.events {padding: 1px;}
+#calendar th.wkhdr, #calendar th.wkndhdr {color:#FFF; background-color:#525252; padding:.5em; font-weight:bold; border:2px solid #FFF;}
+.calendar td.wknd h3, .calendar td.events h3.day {background-color:#CCC; padding: .25em; margin: 0;}
+.calendar td.wknd h3.day {background-color:#AAA;}
+.calendar td ul, td ul a {list-style:none;text-decoration:none;font-size:.95em;}
+.calendar td ul a {font-weight:normal;}
+.calendar td ul {padding:0 5px;text-indent:0;}
+.calendar td.events ul li {border-bottom: solid 1px #DDD}
+.calendar td.wknd ul li {border-bottom: solid 1px #CCC}
+.calendar td ul li, .calendar td ul li a {line-height:120%;padding:0 3px; color:#000, text-decoration:none;}
+.calendar td ul:hover {background:rgba(0,0,0,0);cursor:pointer;}
+
+
+/* CALENDAR DETAIL */
+
+#calendar_detail h3, #calendar_submit h3, #calendar_submit h2 {margin-top: 1em; font-size:2em; font-family:"myriad-pro", sans-serif; line-height: 120%; letter-spacing: .025em;}
+#calendar_detail p.time {padding:.5em 0; font-size:1.25em; font-weight: 100; line-height: 130%; letter-spacing:.025em;}
+#calendar_detail p.info {/*padding:1em 0;*/ font-size:.925em; line-height: 1.5em;}
+#calendar_detail dd p.info {/*padding:1em 0;*/ font-size:1em; line-height: 1.5em;}
+
+#calendar_detail dl {padding-top:.15em; font-size:1.025em; font-family:"myriad-pro", sans-serif; letter-spacing: .025em;}
+#calendar_detail dl dt {padding-top:.8em; font-weight: 400; text-transform: uppercase;}
+#calendar_detail dl dd {padding-bottom:.7em; font-weight: 400; border-bottom:solid 1px #CDCEC9;}
+
+#calendar_detail ul#eventdetail_links {margin-bottom: 1.5em;}
+#calendar_detail ul#eventdetail_links li {float: left; margin-top: .5em; display: inline;}
+#calendar_detail ul#eventdetail_links a {margin-right: 1.5em; letter-spacing: .5px; text-decoration: none; text-transform: uppercase;}
+
+
+/* SUBMIT EVENT AND BUTTON */
+
+#submitevent {margin-top: 1em; margin-left: 2px; padding: 0; clear: both;}
+#calendar_submit h2 {margin-top: 0;}
+#calendar_submit p {margin-top: .5em; font-size:1em; line-height: 1.5em;}
+
+#calendar_submit form#events_add table.tabulargrey2 tbody tr td:first-child {font-weight: 400; line-height: 130%; text-transform:uppercase;}
+#calendar_submit form#events_add table.tabulargrey2 tbody tr td:first-child strong {text-transform:none;}
+#calendar_submit form#events_add table.tabulargrey2 tbody tr td textarea.form {margin-left: 43.75%;}
+
+
+/* SUBMIT BUTTON */
+
+#submitevent li {margin-bottom:20px;}
+#submitevent li a {
+	padding: 7px 10px 5px;
+	font-family: "museo-sans", sans-serif;
+	font-size: 1em;
+	letter-spacing: 1px;
+	color: #EEE;
+	text-transform: uppercase;
+	text-decoration: none;
+	background-color: #680013;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border-radius: 4px;
+}
+
+/* SUBMIT FORM */
+
+input, textarea {-moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;}
+form#events_add {width: 100%;}
+form#events_add h3 {padding: .3em .25em .25em .3em; font-size: 1.25em; text-align: left; background-color: #DDD}
+form#events_add dt {padding-top: 1em; text-transform: uppercase;}
+form#events_add dt span {margin-left: .25em; padding-top: 1em; text-transform: none; letter-spacing:.25px; color: #525252}
+form#events_add dd {margin: .5em 0 0 0; padding-bottom: 1em; border-bottom: solid 1px #CCC;}
+form#events_add dl dd input.form, form#events_add dl dd input.cost, form#events_add dl dd textarea {width: 42%;}
+form#events_add dl dd select[name="locationid"] {width: 42.5%;}
+form#events_add dl dd select[name="post"], form#events_add dl dd select[name="audience"] {width: 42.5%; padding: 1em;}
+form#events_add dl dd select option {padding: 2px;}
+form#events_add br {margin: 0 0 1em 0;}
+form#events_add .required:after {content: " *"; font-size: 1.25em; color: #680013;}
+form#events_add input[name="Submit"] {margin-top: 1em;}
+form#events_add dl dd select {margin-bottom: 1em; padding: 0;}
+form#calendar_filter select option {margin: 0 0 .25em 0;}
+
+
+
+/* ================================================================================================
+   PHONE LANDSCAPE 
+================================================================================================ */
+
+
+@media all and (max-width: 767px) and (min-width: 480px) {
+
+
+/* GLOBAL AND HEADER */
+
+body header.global .content, body.full header.global .content, header#main section.content  {margin: 0; padding: 0 20px; max-width: 100%; height: 5em;}
+
+body.full header#main section.content {margin: 0; padding: 0 20px;}
+
+#main section.content h2 {margin: 0; padding: 0; position: relative; top: -.65em; left: -.5em;}
+
+body header.global {height: 10em;}
+
+body header.global div.content nav {margin: 0; height: 2em;}
+
+#main-sticky-wrapper.my-wrapper header#main {height: 4.5em;}
+
+body header.global a.open {margin: 0; font-size: 1.25em; color: #680013; position: relative; top: .75em; left: -14.5em;}
+
+#pagefull {display: block;  width: 90%; margin: 4em auto;}
+
+#calendar, #calendar_detail, #calendar_submit {margin: 3em auto; padding:1.5em; width: 94.5%; font-size:1.3em; background-color: #fff;}
+
+#calendar_submit {width: 90%;}
+
+#calendar nav#filter {width: 96.75%;}
+
+#calendar nav#filter, #calendar #view, #calendar ul.dayview {border: 0;}
+
+#pagefull {width:95%; margin-top:20px;}
+
+
+
+/* CALENDAR */
+
+#calendar {margin: 2em auto; width: 90%;}
+
+#calendar_submit p {font-size: .65em;}
+
+#calendar_detail, #calendar_submit {margin: 1em auto; padding:1.5em 1.75em; width: 85%;}
+
+#calendar nav#filter {width: 95%; border: 0;}
+
+#calendar #filter {padding:1em; border: 0;}
+
+#calendar #view, #calendar nav#view, #calendar ul.dayview {border: 0;}
+
+#calendar #view h3#name {font-size: 1em;}
+
+#submitevent li a {margin: 0;}
+
+#calendar ul.dayview li {width: 97%; padding-left: 3%;}
+
+#calendar td.wknd ul {background-color:#DDD}
+
+#calendar table.calendar tbody tr td.wknd, #calendar table.calendar tbody tr td.events {padding:0; border:none;}
+
+#calendar table.calendar tbody tr td.events h3.day {margin:0; text-align: left;}
+
+#calendar table.calendar tbody tr td.wknd h3.day {margin:0;}
+
+#calendar table.calendar tbody tr td.wknd h3, #calendar table.calendar tbody tr td.events h3 {padding:.7em 1em .5em;}
+
+#calendar li {height: 2em;}
+
+#calendar table.calendar tbody tr td.wknd ul, #calendar table.calendar tbody tr td.events ul {margin: 0;}
+
+#calendar table.calendar tbody tr td.events ul li {margin: 0; padding: 1em; border-bottom: solid 1px #DDD; height: 2em;}
+
+#calendar table.calendar tbody tr td.events ul li:last-child {border-bottom: none;}
+
+#calendar table.calendar tbody tr td.wknd ul li a, #calendar table.calendar tbody tr td.events ul li a {margin: 0 1em; padding: 0;}
+
+#calendar table.calendar tbody tr td.wknd ul li:hover, #calendar table.calendar tbody tr td.events ul li:hover {background: #EEB111; background-color: #EEB111;}
+
+.calendar td ul {padding:0;}
+
+#calendar table.calendar tbody tr td.events h3.day a {font-size: .6em;}
+
+
+/* LINKS */
+
+.content nav ul li a.link-list-launch {float: left; padding: 5px 3px 2px; min-width: 5em; font-size: .95em;}
+
+a.link-list-launch span .plus {margin-top: -5px; font-size: 1.1em;}
+
+
+/* SUBMIT FORM */
+
+input, textarea {-moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;}
+form#events_add {width: 100%;}
+form#events_add h3 {font-size: .75em;}
+form#events_add dt, form#events_add dd {font-size: .65em;}
+form#events_add dt span {font-size: 1em;}
+form#events_add dl dd input.form, form#events_add dl dd input.cost, form#events_add dl dd textarea {width: 100%; height: 20px;}
+form#events_add dl dd select[name="locationid"] {width: 100%;}
+form#events_add dl dd select[name="post"], form#events_add dl dd select[name="audience"] {width: 100%; padding: .1em;}
+form#events_add .required:after {content: " *"; font-size: 2em; color: #680013;}
+form#events_add input[name="Submit"] {margin-top: 1em;}
+form#events_add dl dd select {margin-bottom: 1em; padding: .5em 0;}
+form#events_add dl dd input.form, form#events_add dl dd input.cost, form#events_add dl dd textarea {width: 98%; height: 20px;}
+form#events_add dl dd select[name="locationid"] {width: 100%;}
+form#events_add dl dd select[name="post"], form#events_add dl dd select[name="audience"] {width: 100%;}
+
+}
+
+
+
+/* ================================================================================================
+   PHONE PORTRIAIT
+================================================================================================ */
+
+
+/* HEADER AND GENERAL */
+
+@media all and (max-width: 479px) and (min-width: 320px) {
+
+body header.global .content, body.full header.global .content{margin: 0; padding: 0;}
+
+body header#main section.content, body.full header#main section.content {margin: 0; padding: 0 10px;}
+
+body header.global .content, header#main section.content {margin: 0; width: 100%; height: 10em;}
+
+body.full header.global div.content nav, body header.global div.content nav {float:left; margin: 1em 0 0 0; width: 100%; height: 3em;}
+
+#main section.content h2 {margin: 0; padding: 0; position: relative; top: .5em; left: 0;}
+
+body header.global a.open {margin-left: .25em; font-size: 1.25em; color: #680013;}
+
+header.global {height: 10em;}
+
+#main-sticky-wrapper.my-wrapper header#main {margin-top: -.5em; height: 4.5em;}
+
+.content nav ul li a.link-list-launch {float: left;} /* LINKS */
+
+a.link-list-launch span .plus {margin-top: -5px; font-size: 1.1em;} /* LINKS PLUS */
+
+#pagefull {width:95%; margin-top:10px;}
+
+
+/* SEARCH AND LINKS */
+
+header.global div.content nav ul {float:left; width: 100%;}
+
+header.global div.content nav ul li {float:left;}
+
+header.global div.content nav ul li form {float:left;}
+
+.content nav ul li a.link-list-launch {float: left; padding: 5px 3px 2px; min-width: 5em; font-size: .95em;}
+
+a.link-list-launch span .plus {margin-top: -5px; font-size: 1.1em;}
+
+
+
+/* CALENDAR */
+
+#calendar {width: 86%; margin:2em 0;}
+
+#calendar_detail, #calendar_submit {margin: 0 auto; padding:1.5em; width: 80%;}
+
+#calendar_submit {margin-top:2em;}
+
+#calendar nav#filter {width: 91.75%;}
+
+#calendar nav#view {min-height: 35px;}
+
+#calendar nav#view h3 {position: relative; top: 20px;}
+
+#calendar h3 {font-size: 1em;}
+
+#calendar ul.dayview li {padding: .5em 0 .5em .5em; width: 98%;}
+
+#calendar table.calendar tbody tr td.events {padding: 0;}
+
+/* SUBMIT FORM */
+
+input, textarea {-moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;}
+form#events_add {width: 100%;}
+form#events_add dl dd input.form, form#events_add dl dd input.cost, form#events_add dl dd textarea {width: 100%; height: 20px;}
+form#events_add dl dd select[name="locationid"] {width: 100%;}
+form#events_add dl dd select[name="post"], form#events_add dl dd select[name="audience"] {width: 100%; padding: .1em;}
+form#events_add .required:after {content: " *"; color: #680013;}
+form#events_add input[name="Submit"] {margin-top: 1em;}
+form#events_add dl dd select {margin-bottom: 1em; padding: .5em 0;}
+form#events_add dl dd input.form, form#events_add dl dd input.cost, form#events_add dl dd textarea {width: 98%; height: 20px;}
+form#events_add dl dd select[name="locationid"] {width: 100%;}
+form#events_add dl dd select[name="post"], form#events_add dl dd select[name="audience"] {width: 100%;}
+
+

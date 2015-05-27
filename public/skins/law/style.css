@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+
+#calendarheader{display:none;}
+table{width: 100%; border-color: #CCC; font-family: "myriad-pro", sans-serif; font-size:12px;}
+td{vertical-align:top;width:14.2%;background-color:#eee;border:2px solid  #fff;}
+a {color:#680013;}
+
+td.wknd{background-color:#dadada;}
+td.wkhdr,td.wkndhdr{color:#fff; background-color:#525252; padding:5px; font-weight:bold; border-right:1px solid #AAAAAA;height:20px;}
+.floatleft{float:left}
+.floatright{float:right}
+#calendar_submit{display:none}
+
+table#calendar tr:nth-child(2) td:nth-child(2) {visibility:hidden;}
+h3{text-align:right;background-color:#cdcec9;margin:0;padding:3px 7px;}
+td.wknd h3{background-color:#bbb;}
+h3 a{color:#272727;text-decoration:none;}
+
+td ul, td ul a{list-style:none;color:#272727;text-decoration:none;font-size:11px;font-weight:bold;}
+td ul a{font-weight:normal;}
+td ul{margin:-10px 5px 15px 5px; padding:0;text-indent:0;}
+td ul li{margin-bottom:5px;line-height:120%;padding:3px;}
+td ul li:hover{background:rgba(0,0,0,0.1);cursor:pointer;}
+#linkrow2{display:none;}
+
+table tr:nth-child(2) {background-color:#dadada;}
+
+#content_text table tr:nth-child(2) td{padding:10px 0 0 0;margin:0;height:0px;overflow:hidden;font-size:11px;font-weight:bold;}
+#content_text table tr:nth-child(2) td{border:0px;}
+
+#eventcontent table td, #eventcontent table{border-left:0px;}
+#content_text table tr:nth-child(2) td:nth-child(1){padding:15px 0 0 10px;text-transform:uppercase;}
+#content_text table tr:nth-child(2) td:nth-child(1) a{color:#680013;}
+
+#content_text table tr:nth-child(2) td form{height:20px;padding:0px 15px 10px 0px;float:right;}
+#content_text table tr:nth-child(2) td .searchbox{width:142px;}
+
+#content_text table tr:nth-child(1) {background-color:#680013;height:50px;}
+.floatleft a, .floatright a{font-size:12px;font-weight:bold;text-decoration:none;text-transform:uppercase;color:#fff;padding:18px 10px;display:block;}
+#content_text table tr:nth-child(1) h2 img{display:none;}
+#content_text table tr:nth-child(1) h2 {color:#fff;text-transform:uppercase;}
+
+
+#eventcontent h2{background-color:#525252;font-size:16px;color:#fff;font-family:Arial, Helvetica, sans-serif;font-weight:bold;padding:5px;margin:10px 0 0 0;}
+#eventdate{font-family:Arial, Helvetica, sans-serif;padding:5px;color:#272727;font-size:14px;background-color:#cdcec9;margin:0 0 15px 0;}
+#eventcontent p{color:#525252;padding:5px;background-color:#eee;}
+#eventcontent td.label{background-color:#cdcec9;color:#272727;font-weight:bold;width:10%;}
+#eventcontent td{width:90%;padding:5px;}
+#eventcontent tr {}
+#eventdetail_links{display:none;}
+
+.dayview{padding:20px 5px;}
+.dayview li{margin:0;border-top:1px solid #aaa;padding:10px 5px 10px 5px;}
