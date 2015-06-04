@@ -1,8 +1,47 @@
+<!--- If no variable for date exists, set current date = to today --->
+<cfif isDefined("url.month") IS 0>
+  <cfset url.month = "#DatePart('m', Now())#">
+</cfif>
+<cfif isDefined("url.year") IS 0>
+  <cfset url.year = "#DatePart('yyyy', Now())#">
+</cfif>
+<cfif isDefined("url.day") IS 0>
+  <cfset url.day = "#DatePart('d', Now())#">
+  <cfelseif url.day gt 27 and url.month is 2>
+  <cfset url.day = 27>
+</cfif>
+<cfif isDefined("url.week") IS 0>
+  <cfset url.week = "#DatePart('ww', Now())#">
+</cfif>
+<cfif isDefined("url.range") IS 0>
+  <cfset url.range = 'ww'>
+</cfif>
+
+<!--- Sets default view for audience is none selected --->
+<cfif isDefined("form.audience")>
+  <cfset url.audience = form.audience>
+  <cfelseif isDefined("url.audience") IS 0>
+  <cfset url.audience = 0>
+</cfif>
+
+<!--- Sets Default view --->
+<cfif isDefined("url.view") IS 0>
+  <cfset url.view = 'ww'>
+</cfif>
+
 <!--- Sets default skin as site none --->
 <cfif isDefined("form.skin")>
   <cfset url.skin = form.skin>
   <cfelseif isDefined("url.skin") IS 0>
   <cfset url.skin = 'default'>
+</cfif>
+<!--- Sets default calendar as site id=0 --->
+<cfif isDefined("form.siteid")>
+  <cfset url.siteid = form.siteid>
+  <cfelseif isDefined("url.siteid")>
+  <cfset url.siteid = url.siteid>
+  <cfelse>
+  <cfset url.siteid = 0>
 </cfif>
 <cfquery name="getevents" datasource="#application.datasource_select#">
 select eventid, shortdesc,longdesc,pubdate,pulldate,startdate,enddate,events_cost as cost,events_link,events_link_override,ispublic,rsvp,rsvp_public,INFO_CLOB as information,userid,locationid,sponsor,contact,contactinfo,events_link,specificlocation,invited,registration_link
@@ -35,11 +74,13 @@ where locationid<>21 and isactive=1
 order by location_name
 </cfquery>
 
-
 <cfif parameterexists(url.skin) and url.skin neq 'none'>
   <cfinclude template="skins/#url.skin#/top.cfm">
   <cfelse>
 </cfif>
+
+<cfinclude template="ssi/filtermenu.cfm">
+
 
 <header class="container-fluid">
   <h2>Submit an Event</h2>

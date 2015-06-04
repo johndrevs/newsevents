@@ -2,16 +2,14 @@
   <cfif source eq 'form'>
     <cfset fielddate="form"&".#field#">
     <cfset fielddate=evaluate(fielddate)>
-  <cfelseif cgi.PATH_TRANSLATED contains 'add' or cgi.PATH_TRANSLATED contains 'submit'>
-   <cfset fielddate=now()>
-   
-   <cfelseif source eq 'getevents'>
+    <cfelseif cgi.PATH_TRANSLATED contains 'add' or cgi.PATH_TRANSLATED contains 'submit'>
+    <cfset fielddate=now()>
+    <cfelseif source eq 'getevents'>
     <cfset fielddate="getevents"&".#field#">
     <cfset fielddate=evaluate(fielddate)>
     <cfif field eq 'enddate' and enddate eq ''>
       <cfset fielddate=now()>
     </cfif>
-  
   </cfif>
   <cfif field eq 'pulldate'>
     <cfset fielddate=dateadd("yyyy", 2, now())>
@@ -43,26 +41,22 @@
     <cfelse>
     <cfset field_ampm='am'>
   </cfif>
-  <div class="input-append date" id="#field#" data-date="#field_month#/#field_day#/#field_year#" data-date-format="m/d/yyyy">
-    <input class="span2" size="16" type="text" value="#field_month#/#field_day#/#field_year#" name="#variables.field#" readonly>
-    <span class="add-on"><i class="icon-th"></i></span> </div>
+  <div class="input-group date #variables.field#">
+  <input type="text" class="form-control" name="#variables.field#" value="#field_month#/#field_day#/#field_year#"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+</div>
   <script>
-		$(function(){		          
-			$('###field#').datepicker({
-autoclose: true
-});     
-      
-		});
-	</script>
+ $('.input-group.date.#variables.field#').datepicker({
+    todayBtn: true,
+	autoclose: true,
+     todayHighlight: true
+});</script>
   <cfif field contains 'start' or field contains 'end'>
-    <div id="timepicker#field#" class="input-append bootstrap-timepicker<cfif (field contains 'end' and enddateno is 1 and cgi.PATH_TRANSLATED does not contain 'add' AND cgi.PATH_TRANSLATED does not contain 'submit') OR (#field_hour# eq 1 and field_ampm eq 'am')> hidden</cfif>">
-      <input name="time_#field#" type="text" class="input-small" id="#field#_timepicker"  data-minute-step="1" />
-      <span class="add-on"><i class="icon-time"></i></span> </div>
+    <div id="timepicker#field#" class="input-group bootstrap-timepicker<cfif (field contains 'end' and enddateno is 1 and cgi.PATH_TRANSLATED does not contain 'add' AND cgi.PATH_TRANSLATED does not contain 'submit') OR (#field_hour# eq 1 and field_ampm eq 'am')> hidden</cfif>">
+      <input name="time_#field#" class="form-control" type="text" id='#field#_timepicker' />
+      <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span> 
+    </div>
     <script type="text/javascript">
-        $(document).ready(function () { 
-            $('###field#_timepicker').timepicker('setTime', '#field_hour#:#field_minute# #field_ampm#');            
-        });
-		
-    </script>
+            $("###field#_timepicker").timepicker();
+        </script>
   </cfif>
   <!------></cfoutput> 

@@ -24,7 +24,7 @@
 <cfset pubdate="#evaluate("#source#.pubdate")#">
 <cfelse>
 <cfset pubdate=now()>
-</cfif>
+</cfif><!---<cfoutput>|#pubdate#|<cfdump var="#form#"></cfoutput><cfabort>--->
 <cfset pubdate=#CreateDateTime(dateformat(pubdate,"yyyy"), dateformat(pubdate,"mm"), dateformat(pubdate,"d"), 1, 00, 00)#>
 
 <cfif isdefined("form.pulldate")>

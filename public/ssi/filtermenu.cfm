@@ -40,7 +40,7 @@ where ispublic=1 and isactive=1 and calendar=1
 <cfif isdefined("calendarlist_filter")>AND siteid in (#calendarlist_filter#)</cfif>
 order by <cfif isdefined("calendarlist_filter")>siteid,</cfif>site_name
 </cfquery>
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Calendars <span class="caret"></span></a>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Other Calendars <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <cfoutput query="getsitelist">
               <li><a href="#cgi.script_name#?view=#url.view#&month=#url.Month#&year=#url.Year#&day=#url.day#&range=#url.range#&skin=#url.skin#&audience=#url.audience#&siteid=#siteid#">#site_name#</a></li>

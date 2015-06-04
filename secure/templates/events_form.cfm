@@ -2,22 +2,22 @@
  
     <h3>Event Information</h3>
     <div class="well">
-      <div class="control-group">
-        <label class="control-label" for="shortdesc" value="#shortdesc#">Event Title </label>
+      <div class="form-group">
+        <label for="shortdesc" value="#shortdesc#">Event Title </label>
         <div class="controls">
-          <input type="text" name="shortdesc" size="50" maxlength="#application.short#"  value="#shortdesc#" class="form">
-          <span class="help-block">(Required, 50 characters max)</span> </div>
+          <input type="text" name="shortdesc" maxlength="#application.short#"  value="#shortdesc#" class="form-control">
+          <p class="help-block">(Required, 50 characters max)</p> </div>
       </div>
       
-      <div class="control-group">
-        <label class="control-label" for="startdate">Event Start Date/Time</label>
+      <div class="form-group">
+        <label for="startdate">Event Start Date/Time</label>
         <div class="controls">
           <cfset field='startdate'>
           <cfinclude template="datedropdown.cfm">
-          <label class="checkbox">
-            <input type="checkbox" name="allday" value="1" <cfif allday eq 1>checked</cfif> id="alldaycheck">
-            Check here if this is an all day event</label>
-            <script>
+          <div class="checkbox">
+    <label>
+       <input type="checkbox" name="allday" value="1" <cfif allday eq 1>checked</cfif> id="alldaycheck"> Check here if this is an all day event
+    </label><script>
 			$("##alldaycheck").click(function () {
  
 	  if ($('##timepicker#field#').is('.hidden')) {
@@ -35,17 +35,19 @@
 	  }
  
     });</script>
+  </div>
+         
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="enddate">Event End Date/Time</label>
+      
+      <div class="form-group">
+        <label for="enddate">Event End Date/Time</label>
         <div class="controls">
           <cfset field='enddate'>
           <cfinclude template="datedropdown.cfm">
-          <label class="checkbox">
-            <input type="checkbox" name="enddateno" value="1" <cfif enddateno eq 1  and (cgi.PATH_TRANSLATED does not contain 'add' AND cgi.PATH_TRANSLATED does not contain 'submit')>checked</cfif> id="enddatenope">
-            Check here if this event doesn't have an end date or time. </label>
-            <script>
+          <div class="checkbox">
+    <label>
+      <input type="checkbox" name="enddateno" value="1" <cfif enddateno eq 1  and (cgi.PATH_TRANSLATED does not contain 'add' AND cgi.PATH_TRANSLATED does not contain 'submit')>checked</cfif> id="enddatenope"> Check here if this event doesn't have an end date or time.<script>
 			$("##enddatenope").click(function () {
  
 	  if ($('##timepicker#field#').is('.hidden')) {
@@ -59,11 +61,15 @@
  
 	  }
  
-    });</script>
+    });</script> 
+    </label>
+  </div>
+         
+            
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="locationid">General Location</label>
+      <div class="form-group">
+        <label for="locationid">General Location</label>
         <div class="controls">
           <select name="locationid">
             <option value="0">Please Choose</option>
@@ -73,86 +79,90 @@
           </select>
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="specificlocation">Specific Location</label>
+      <div class="form-group">
+        <label for="specificlocation">Specific Location</label>
         <div class="controls">
-          <input type="text" name="specificlocation" size="50" maxlength="#application.short#" value="#specificlocation#" class="form">
+          <input type="text" name="specificlocation" maxlength="#application.short#" value="#specificlocation#" class="form-control">
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="contact">Contact Person</label>
+      <div class="form-group">
+        <label for="contact">Contact Person</label>
         <div class="controls">
-          <input type="text" name="contact" size="50" maxlength="#application.long#"  value="#contact#" class="form">
+          <input type="text" name="contact" maxlength="#application.long#"  value="#contact#" class="form-control">
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="contactinfo">Contact e-mail and/or Phone</label>
+      <div class="form-group">
+        <label for="contactinfo">Contact e-mail and/or Phone</label>
         <div class="controls">
-          <input type="text" name="contactinfo" size="50" maxlength="#application.long#"  value="#contactinfo#" class="form">
+          <input type="text" name="contactinfo" maxlength="#application.long#"  value="#contactinfo#" class="form-control">
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="shortdesc">Cost/Admission</label>
+      <div class="form-group">
+        <label for="cost">Cost/Admission</label>
         <div class="controls">
-          <input type="text" name="cost" size="50" maxlength="#application.long#"  value="#events_cost#" class="cost">
+          <input type="text" name="cost" maxlength="#application.long#"  value="#events_cost#" class="cost">
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="invited">Event Open To</label>
+      <div class="form-group">
+        <label for="invited">Event Open To</label>
         <div class="controls">
-          <input type="text" name="invited" size="50" maxlength="#application.long#" value="#invited#" class="form">
+          <input type="text" name="invited" maxlength="#application.long#" value="#invited#" class="form-control">
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="ispublic">Is this event a public event?</label>
-        <div class="controls">
-          <label class="radio" style="width:50px;">
+      <div class="form-group">
+        <label for="ispublic">Is this event a public event?</label>
+        <div class="radio">
+          <label class="radio">
             <input type="radio" name="ispublic" value="1" <cfif ispublic eq 1>checked</cfif>>
             Yes</label>
-          <label class="radio" style="width:50px;">
+          <label class="radio">
             <input type="radio" name="ispublic" value="0" <cfif ispublic neq 1>checked</cfif>>
             No</label>
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="sponsor">Sponsored by </label>
+      <div class="form-group">
+        <label for="sponsor">Sponsored by </label>
         <div class="controls">
-          <input type="text" name="sponsor" size="50" maxlength="#application.short#" value="#sponsor#" class="form">
-          <span class="help-block">(ex. Mission and Ministry Department)</span> </div>
+          <input type="text" name="sponsor" maxlength="#application.short#" value="#sponsor#" class="form-control">
+          <p class="help-block">(ex. Mission and Ministry Department)</p> </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="events_link">Event Website <span class="note"></span></label>
+      <div class="form-group">
+        <label for="events_link">Event Website <span class="note"></span></label>
         <div class="controls">
-          <input type="text" name="events_link" size="50" maxlength="150" value="#events_link#" class="form">
-          <span class="help-block">(ex: http://www.luc.edu)</span> </div>
+          <input type="text" name="events_link" maxlength="150" value="#events_link#" class="form-control">
+          <p class="help-block">(ex: http://www.luc.edu)</p> </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="events_link_override">Would you like the event Website to be the detail page for your event?</label>
-        <div class="controls">
-          <label class="radio" style="width:50px;"> Yes
+      <div class="form-group">
+        <label for="events_link_override">Would you like the event Website to be the detail page for your event?</label>
+        <div class="radio">
+        
+        <label class="radio">
             <input type="radio" name="events_link_override" value="1" <cfif events_link_override eq 1>checked</cfif>>
-          </label>
-          <label class="radio" style="width:50px;"> No
+            Yes</label>
+          <label class="radio">
             <input type="radio" name="events_link_override" value="0" <cfif events_link_override neq 1>checked</cfif>>
-          </label>
+            No</label>
+            
+            
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="information">Event Description</label>
+      <div class="form-group">
+        <label for="information">Event Description</label>
         <div class="controls">
-          <textarea rows="8" name="information" class="textarea" style="width:90%">#information#</textarea>
+          <textarea rows="8" name="information" class="form-control" style="width:100%">#information#</textarea>
             
         </div>
       </div>
     </div>
+    
     <h3>Calendar Placement Information</h3>
     <div class="well">
       <cfif variables.public eq 1>
-        <div class="control-group">
-          <label class="control-label" for="publish">Approve Event for<span class="help-block">(Ctrl+click for multiple)</span></label>
-          <div class="controls">
+        <div class="form-group">
+          <label for="publish">Approve Event for<p class="help-block">(Ctrl+click for multiple)</p></label>
+        
             <cfif getpublish.recordcount gt 0>
-              <select name="publish" size="5" multiple="multiple" style="width:100%;">
+              <select name="publish" multiple="multiple" class="form-control">
                 <cfif session.administrator is 1>
                   <option value="0">University Calendar</option>
                   <option value="0">---------------</option>
@@ -166,15 +176,18 @@
               <cfelse>
               You do not have access to approve for any calendars
             </cfif>
-          </div>
+          
         </div>
       </cfif>
+     
+     <br />
+     
       <cfif cgi.PATH_TRANSLATED does not contain 'events_rework'>
-      <div class="control-group">
-        <label class="control-label" for="post">Suggest Event for<span class="help-block">(It is automatically suggested to University Calendar, Ctrl+click for multiple)</span></label>
-        <div class="controls">
+      <div class="form-group">
+        <label for="post">Suggest Event for<p class="help-block">(It is automatically suggested to University Calendar, Ctrl+click for multiple)</p></label>
+        
           <cfif getpost.recordcount gt 0>
-            <select name="post" size="5" multiple="multiple" style="width:100%;">
+            <select name="post" multiple="multiple" class="form-control">
               <option value="0" selected="selected" disabled="disabled" >University Calendar</option>
               <option value="0">---------------</option>
               <cfloop query="getpost">
@@ -186,7 +199,7 @@
             <cfelse>
             You do not have access to suggest to any calendars
           </cfif>
-        </div>
+       
       </div>
       </cfif>
       
@@ -194,24 +207,24 @@
       
     </div>
     <h3>Event Publication Information (optional)</h3>
-    <div class="well"><div class="control-group">
-        <label class="control-label" for="pubdate">Publish Date</label>
+    <div class="well"><div class="form-group">
+        <label for="pubdate">Publish Date</label>
         <div class="controls">
           <cfset field='pubdate'>
           <cfinclude template="datedropdown.cfm">
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="pulldate">Pull Date</label>
+      <div class="form-group">
+        <label for="pulldate">Pull Date</label>
         <div class="controls">
           <cfset field='pulldate'>
           <cfinclude template="datedropdown.cfm">
         </div>
       </div>
       </div>
-    <input type="hidden" name="longdesc" value="" class="form">
+    <input type="hidden" name="longdesc" value="" class="form-control">
     
-     <input type="hidden" name="audience" value="21" class="form"> 
+     <input type="hidden" name="audience" value="21" class="form-control"> 
         
     <input name="Submit" type="submit" value="Preview Event" class="btn" />
     <cfif isdefined ("url.skin") and url.skin EQ 'law'>

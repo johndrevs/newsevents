@@ -18,6 +18,14 @@
 <link href="http://www.luc.edu/media/home/stylesheets/button-loyola.css" media="" type="text/css" rel="stylesheet">
 <link href="https://cloud.typography.com/6236852/700402/css/fonts.css" type="text/css" rel="stylesheet">
 <link href="styles/newsevents.css" rel="stylesheet" type="text/css">
+<link id="bsdp-css" href="http://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet">
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="http://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<link href="http://acpmasquerade.github.io/bootstrap3-timepicker2/css/bootstrap-timepicker.css" rel="stylesheet">
+<script src="http://acpmasquerade.github.io/bootstrap3-timepicker2/js/bootstrap-timepicker.js"></script>
+
+
 <style>
 .btn {color:white;}
 .wknd{background-color: #f5f5f5;}
