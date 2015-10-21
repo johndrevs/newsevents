@@ -51,7 +51,7 @@
 				suff = '<span class="suffix">th</span>';
 			}
 		</cfscript>
-  
+
   <!--- Now replace the substring --->
   <cfset date[1] = date[1] & suff />
   <cfreturn ArrayToList(date, ' ') />
@@ -76,40 +76,40 @@
   <!--- Loop through until the number of days in the month is reached.  --->
   <tbody>
     <!-- event output row -->
-    <tr> 
+    <tr>
       <!--- Loop through each day of the week. --->
       <cfloop from="#loopfrom#" to="#loopto#" index="LoopDay">
-        <!--- If ThisDay is still 0, check to see if the current day of the week in the loop ---> 
-        <!--- matches the day of the week for the first day of the month. ---> 
-        <!--- If the values match, set ThisDay to 1. ---> 
-        <!--- Otherwise, the value will remain 0 until the correct day of the week is found. ---> 
-        
-        <!--- If the ThisDay value is still 0, or it is greater than the number of days in the month, ---> 
-        <!--- display nothing in the column. ---> 
+        <!--- If ThisDay is still 0, check to see if the current day of the week in the loop --->
+        <!--- matches the day of the week for the first day of the month. --->
+        <!--- If the values match, set ThisDay to 1. --->
+        <!--- Otherwise, the value will remain 0 until the correct day of the week is found. --->
+
+        <!--- If the ThisDay value is still 0, or it is greater than the number of days in the month, --->
+        <!--- display nothing in the column. --->
         <!--- Otherwise, display the day of the month and increment the value. --->
-        
+
         <cfset url.day = "#DatePart('d', currentdate)#">
         <cfset url.month = "#DatePart('m', currentdate)#">
         <cfset url.year = "#DatePart('yyyy', currentdate)#">
-        
+
         <!--- query for events based on current date --->
         <cfquery name="getevent" datasource="#application.datasource_select#" maxrows=20 cachedWithin="#createTimeSpan( 0, 1, 0, 0 )#">
 SELECT distinct events_tbl.eventID, shortdesc,  startdate, enddate, events_link_override,events_link, locationid,specificlocation,events_cost,contact
 FROM CUNVMCS.events_tbl,  CUNVMCS.events_audref
 WHERE ((to_char(startdate, 'yyyy-mm-dd') <= to_char(<cfqueryparam value="#dateformat(currentdate,"yyyy-mm-dd")#" cfsqltype="CF_SQL_DATE">, 'yyyy-mm-dd') and to_char(enddate, 'yyyy-mm-dd') >= to_char(<cfqueryparam value="#dateformat(currentdate,"yyyy-mm-dd")#" cfsqltype="CF_SQL_DATE">, 'yyyy-mm-dd')) OR (to_char(startdate, 'yyyy-mm-dd') = to_char(<cfqueryparam value="#dateformat(currentdate,"yyyy-mm-dd")#" cfsqltype="CF_SQL_DATE">, 'yyyy-mm-dd') and enddate is NULL))
-	
+
 	<cfif url.audience is not 0>and events_audref.audienceid IN (#url.audience#)</cfif>
-	
+
 AND events_audref.eventid=events_tbl.eventid and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd') and  events_tbl.isactive=1 and  events_tbl.eventid IN (select events_ref.eventid from CUNVMCS.events_ref where 0=0
-					
+
 and events_ref.siteid in (#url.siteid#)
-	
+
 and events_ref.events_ref_level =2)
 order by events_tbl.startdate
 </cfquery>
-        
+
         <!--- displays td with date and event query information --->
-        
+
         <td class="<cfif dayofweek(currentdate) EQ 1 or dayofweek(currentdate) EQ 7>wknd</cfif> <cfif getevent.recordcount GT 0>events</cfif>">
 		<cfoutput>
             <h3 class="day"><a href="calendar.cfm?view=d&month=#url.Month#&year=#url.Year#&day=#url.day#&range=d&siteid=#url.siteid#&audience=#url.audience#&skin=#url.skin#"><span class="month">#dateformat(currentdate,"mmmm")#</span><span class="num">#dateformatter(currentdate)#</span></a></h3>
@@ -136,12 +136,12 @@ order by events_tbl.startdate
                   <a href="calendar_detail.cfm?eventid=#eventid#&siteid=#url.siteid#&month=#url.month#&year=#url.year#&day=#url.day#&range=#url.range#&audience=#url.audience#&view=#url.view#&skin=#url.skin#" title="#shortdesc#">#shortdesc#</a>
                 </cfif>
                 </li>
-            </cfoutput> 
+            </cfoutput>
             </ul>
             <cfelse>
           </cfif>
          </td>
-        
+
         <!--- Increment to the next day	 --->
         <cfset currentdate = DateAdd("d", 1, currentdate)>
       </cfloop>

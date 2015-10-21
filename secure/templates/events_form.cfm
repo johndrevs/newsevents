@@ -130,7 +130,7 @@
         <label for="events_link">Event Website <span class="note"></span></label>
         <div class="controls">
           <input type="text" name="events_link" maxlength="150" value="#events_link#" class="form-control">
-          <p class="help-block">(ex: http://www.luc.edu)</p> </div>
+          <p class="help-block">(ex: http://www.luc.edu IMPORTANT: you must enter http:// )</p> </div>
       </div>
       <div class="form-group">
         <label for="events_link_override">Would you like the event Website to be the detail page for your event?</label>

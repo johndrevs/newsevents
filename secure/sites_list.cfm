@@ -124,7 +124,10 @@ WHERE AUTH_TBL.siteid=#siteid#  AND AUTH_TBL.AUTH_LEVEL=2 and users.userid=auth_
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
     <h4 id="myModalLabel">#site_name#</h4>
   </div>
-  <div class="modal-body">
+
+ <div class="modal-body">
+ <b>Site ID:</b> #siteid#
+ <br>
     The following users have publish access to this site:
     <ul>
     <li><strong>All administrators</strong></li>

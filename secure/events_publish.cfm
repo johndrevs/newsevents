@@ -1,6 +1,7 @@
-<cfquery name="updatenews" datasource="#application.datasource_update#">
-		update     CUNVMCS.events_ref
-SET       events_ref_level=2
+
+<cfquery name="levelchange" datasource="#application.datasource_update#">
+UPDATE CUNVMCS.events_ref
+set events_ref_level=2, actiondate=SYSDATE, userid=#session.userid#
 where event_refid=#form.event_refid#
 </cfquery>
 <cfoutput>

@@ -20,7 +20,7 @@ Next we will connect to our database and get the tutorials (or whatever you want
 <cfset url.day = 30></cfif>
 <cfset currentdate = CreateDatetime(year, month, day,hour,minute,'00')>
 <cfquery datasource="#application.datasource_select#" name="getevent2">
-SELECT distinct events_tbl.eventID, shortdesc,  startdate, events_link_override,events_link,enddate,locationid,  pubdate, SPECIFICLOCATION 
+SELECT distinct events_tbl.eventID, shortdesc,  startdate, events_link_override,events_link,enddate,locationid,  pubdate, SPECIFICLOCATION
 FROM CUNVMCS.events_tbl,  CUNVMCS.events_audref
 WHERE isactive=1 AND shortdesc IS NOT NULL and shortdesc <> ' ' and ((to_char(startdate, 'yyyy-mm-dd HH24:MI') >= '#dateformat(currentdate,"yyyy-mm-dd HH:mm")#'))	
 AND events_audref.eventid=events_tbl.eventid and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd') and  events_tbl.eventid IN (select events_ref.eventid from CUNVMCS.events_ref where 0=0
