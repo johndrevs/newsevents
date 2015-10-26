@@ -2,7 +2,7 @@
 /* CSS Document */
 
 /* Container table styles content: '   |';*/
-
+header.container-fluid{background-color:red;margin-top:100px;}
 
 
 #calendar, #calendar_detail {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!---<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -38,4 +38,13 @@
     <![endif]-->
 </head>
 
-<body>
+<body>--->
+
+<cfhttp url="https://cms4.luc.edu/patternlibrary/b3primary/" method="GET" resolveurl="yes" throwonerror="yes"></cfhttp>
+<cfset headerend=findnocase("END HEADER", cfhttp.fileContent)>
+<cfset headerend=headerend+14>
+<cfset header=removechars(cfhttp.FileContent,headerend,40000)>
+<cfset adjustcss='<!-- Custom CSS to overwrite css files-->'&'<link rel="stylesheet" href="styles/newsevents.css">'>
+<cfset header=Replace(header,"<!-- Custom CSS to overwrite css files-->", adjustcss)>
+
+<cfoutput>#header#</cfoutput>
